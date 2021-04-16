@@ -4,11 +4,13 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Muveletek extends javax.swing.JFrame {
@@ -327,19 +329,56 @@ public class Muveletek extends javax.swing.JFrame {
             File f = fc.getSelectedFile();
             
             String[] kiterjesztes = ((FileNameExtensionFilter)fc.getFileFilter()).getExtensions();
-            String fn = f.getName() + "." +kiterjesztes[0];
+            String fn = f.getName(); //+ "." +kiterjesztes[0];
+            
+            /* kiterjezstés van e*/
+            if(!fn.endsWith("." + kiterjesztes[0])){
+                fn += "." + kiterjesztes[0];
+            }
+            
+            /* kiterjezstés van e VÉGE*/
+            Path path = Paths.get(fn);
+            boolean mentes = true;
+            /* létezik e*/
+            if(Files.exists(path)){
+                kivalaszt = JOptionPane.showConfirmDialog(this, "Felülírjam", "A fájl létezik", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                if(kivalaszt == JOptionPane.NO_OPTION){
+                    mentes = false;
+                    
+                }
+            }
+            
+            /* létezik e VÉGE*/
+            
             lblEredmeny.setText("<html>Elérés: " + f.getPath() + "<br>Fájl neve: " + fn + "</html>");
             try {
-                Files.write(Paths.get(f.getPath()+ "." + kiterjesztes[0]), "Statisztika: ".getBytes());
+                /* tényleges kiiratás */
+                if(mentes){
+                    Files.write(path, "Statisztika: ".getBytes());
+                }
+                /* tényleges kiiratás VÉGE*/
             } catch (IOException ex) {
                 Logger.getLogger(Muveletek.class.getName()).log(Level.SEVERE, null, ex);
             }
 
+        }else {
+            JOptionPane.showMessageDialog(this, "Mentés megszakítva", "Nincs mentés", JOptionPane.INFORMATION_MESSAGE);
         }
 
 //        File mentes = fileChooser.getSelectedFile();          
 //        String eleresiUt = mentes.getAbsolutePath()+ ".txt"; 
 //        Files.write(Paths.get(eleresiUt), kiirat.getBytes());
+
+/* tesztesetek
+
+- kiterjesztés megváltoztatása
+- olyan kiterjesztés írása, ami nincs a listában
+- üresen marad a fájl neve
+- másik mappa kiválasztása
+
+- kiterjesztéssel választom a meglevő fájlt, és szintén mögé rakja a kiterjesztést
+- ha létezik, kérdés nélkül felülírja
+*/
     }//GEN-LAST:event_mnuFajlMentMaskentActionPerformed
 
     /**
