@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Muveletek extends javax.swing.JFrame {
-
+    String mentettFajl; 
     /**
      * Creates new form Muveletek
      */
@@ -304,6 +304,20 @@ public class Muveletek extends javax.swing.JFrame {
                 }
             }
         }
+        
+        
+        if (mentettFajl == null) {
+            /* az első mentés során a mentés másként metódus kell */
+            mnuFajlMentMaskentActionPerformed(evt);
+   
+        } else {
+            try {
+                /* további mentések */
+                Files.write(Paths.get(mentettFajl), "Statisztika: ".getBytes());
+            } catch (IOException ex) {
+                Logger.getLogger(Muveletek.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
 
     }//GEN-LAST:event_mnuFajlMentActionPerformed
@@ -335,8 +349,9 @@ public class Muveletek extends javax.swing.JFrame {
             if(!fn.endsWith("." + kiterjesztes[0])){
                 fn += "." + kiterjesztes[0];
             }
-            
             /* kiterjezstés van e VÉGE*/
+            
+            mentettFajl = fn;
             Path path = Paths.get(fn);
             boolean mentes = true;
             /* létezik e*/
