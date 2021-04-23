@@ -1,6 +1,0 @@
-Alampműveletek gyakoroltatása statisztika: 
-   Kérdések száma:6   Probálkozások száma:10
-       Összeadás: 0             Összeadás: 0
-         Kivonás: 0               Kivonás: 0
-          Osztás: 6               Osztás: 10
-         Szorzás: 0               Szorzás: 0
