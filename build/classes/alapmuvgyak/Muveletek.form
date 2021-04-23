@@ -128,7 +128,7 @@
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="pnlGyakorlas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="76" max="32767" attributes="0"/>
+                      <EmptySpace pref="174" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnUj" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="btnMegoldas" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -257,33 +257,28 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblOsszeadKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblKivonasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblOsztasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblSzorzasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="lblOsszKerdes" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="lblOsszeadKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsszKerdes" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
+                      <Component id="lblKivonasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsztasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSzorzasKerdes" linkSize="1" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="74" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblOsszeadProba" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="lblKivonasProba" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="lblSzorzasProba" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblOsszeadProba" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="lblOsztasProba" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblOsszProba" alignment="1" min="-2" pref="156" max="-2" attributes="0"/>
+                      <Component id="lblOsszProba" alignment="1" min="-2" pref="190" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblEredmeny" min="-2" pref="156" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="312" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -296,25 +291,24 @@
                       <Component id="lblOsszProba" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblOsszeadKerdes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblKivonasKerdes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblOsztasKerdes" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblSzorzasKerdes" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lblOsszeadProba" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblKivonasProba" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblOsztasProba" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblSzorzasProba" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblOsszeadKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsszeadProba" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblKivonasKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblKivonasProba" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblOsztasKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblOsztasProba" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblSzorzasKerdes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblSzorzasProba" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblEredmeny" min="-2" max="-2" attributes="0"/>
