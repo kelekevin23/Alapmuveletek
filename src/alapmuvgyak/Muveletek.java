@@ -482,12 +482,8 @@ public class Muveletek extends javax.swing.JFrame {
                 List<String> stringLista = Files.readAllLines(path);
                 
 //                String elsoSor = stringLista.get(1);
-//                String masodikSor = stringLista.get(2);
-//                String harmadikSor = stringLista.get(3);
-//                String negyedikSor = stringLista.get(4);
-//                String otodikSor = stringLista.get(5);
-//                
-//                //első sor       
+
+
 //                //String[] adatok = elsoSor.split("\\D");
 //                //adatok = adatok[1].split(" ");
 //                //elsoSor = elsSor.replaceAll("\\D+", " ")
