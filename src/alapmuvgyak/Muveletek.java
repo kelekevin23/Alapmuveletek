@@ -24,22 +24,18 @@ public class Muveletek extends javax.swing.JFrame {
     
     int osszKerdes = 0;
     int osszProba = 0;
-
     int osszeadasKerdes = 0;
     int osszeadasProba = 0;
-
     int kivonasKerdes = 0;
     int kivonasProba = 0;
-
     int osztasKerdes = 0;
     int osztasProba = 0;
-
     int szorzasKerdes = 0;
     int szorzasProba = 0;
-
     int muveletSzama = 0;
     int osszHelyes = 0;
 
+    int[] szamok = {osszProba, osszKerdes, osszeadasProba, osszeadasKerdes, kivonasProba, kivonasKerdes, osztasProba, osztasKerdes,  szorzasProba, szorzasKerdes};
     /**
      * Creates new form Muveletek
      */
@@ -485,42 +481,37 @@ public class Muveletek extends javax.swing.JFrame {
                 
                 List<String> stringLista = Files.readAllLines(path);
                 
-                String elsoSor = stringLista.get(1);
-                String masodikSor = stringLista.get(2);
-                String harmadikSor = stringLista.get(3);
-                String negyedikSor = stringLista.get(4);
-                String otodikSor = stringLista.get(5);
+//                String elsoSor = stringLista.get(1);
+//                String masodikSor = stringLista.get(2);
+//                String harmadikSor = stringLista.get(3);
+//                String negyedikSor = stringLista.get(4);
+//                String otodikSor = stringLista.get(5);
+//                
+//                //első sor       
+//                //String[] adatok = elsoSor.split("\\D");
+//                //adatok = adatok[1].split(" ");
+//                //elsoSor = elsSor.replaceAll("\\D+", " ")
+//                String[] adatok = elsoSor.split(": ");
+//                String[] sorkoz = adatok[1].split("   ");
+//                osszKerdes = Integer.valueOf(sorkoz[0]);
+//                osszProba = Integer.valueOf(adatok[2]);
+
                 
-                //első sor
-                String[] adatok = elsoSor.split(": ");
-                String[] sorkoz = adatok[1].split("   ");
-                osszKerdes = Integer.valueOf(sorkoz[0]);
-                osszProba = Integer.valueOf(adatok[2]);
                 
-                //második sor
-                String[] adatok2 = masodikSor.split(": ");
-                String[] sorkoz2 = adatok2[1].split("   ");
-                osszeadasKerdes = Integer.valueOf(sorkoz2[0]);
-                osszeadasProba = Integer.valueOf(adatok2[2]);
-                
-                //harmadik sor
-                String[] adatok3 = harmadikSor.split(": ");
-                String[] sorkoz3 = adatok3[1].split("   ");
-                kivonasKerdes = Integer.valueOf(sorkoz3[0]);
-                kivonasProba = Integer.valueOf(adatok3[2]);
-                
-                //negyedik sor
-                String[] adatok4 = negyedikSor.split(": ");
-                String[] sorkoz4 = adatok4[1].split("   ");
-                osztasKerdes = Integer.valueOf(sorkoz4[0]);
-                osztasProba = Integer.valueOf(adatok4[2]);
-                
-                //ötödik sor
-                String[] adatok5 = otodikSor.split(": ");
-                String[] sorkoz5 = adatok5[1].split("   ");
-                szorzasKerdes = Integer.valueOf(sorkoz5[0]);
-                szorzasProba = Integer.valueOf(adatok5[2]);
-                
+                int seged = 0;
+                int index = 0;
+                for (int i = 0; i < 5; i++) {
+                    seged ++;
+
+                    String Sor = stringLista.get(seged);
+                    String[] ertekek = Sor.split(": ");
+                    szamok[index] = Integer.valueOf(ertekek[2]);
+                    index++;
+                    
+                    String[] sorkozok = ertekek[1].split("   ");
+                    szamok[index] = Integer.valueOf(sorkozok[0]);
+                    index++;
+                }
                 kiiratasok();
                 /* tényleges megnyitás VÉGE */         
             } catch (IOException ex) {
@@ -574,13 +565,13 @@ public class Muveletek extends javax.swing.JFrame {
                     if (szam1 + szam2 == vegeredmeny) {
                         lblValasz.setText("A megoldásod helyes!");
                         btnEllenorzes.setEnabled(false);
-                        osszProba++;
-                        osszeadasProba++;
+                        szamok[0]++;
+                        szamok[2]++;
                         osszHelyes++;
                     } else {
                         lblValasz.setText("A megoldásod rossz!");
-                        osszProba++;
-                        osszeadasProba++;
+                        szamok[0]++;
+                        szamok[2]++;
 
                     }
                 } catch (Exception e) {
@@ -592,13 +583,13 @@ public class Muveletek extends javax.swing.JFrame {
                     if (szam1 - szam2 == vegeredmeny) {
                         lblValasz.setText("A megoldásod helyes!");
                         btnEllenorzes.setEnabled(false);
-                        osszProba++;
-                        kivonasProba++;
+                        szamok[0]++;
+                        szamok[4]++;
                         osszHelyes++;
                     } else {
                         lblValasz.setText("A megoldásod rossz!");
-                        osszProba++;
-                        kivonasProba++;
+                        szamok[0]++;
+                        szamok[4]++;
 
                     }
                 } catch (Exception e) {
@@ -610,13 +601,13 @@ public class Muveletek extends javax.swing.JFrame {
                     if (szam1 / szam2 == vegeredmeny) {
                         lblValasz.setText("A megoldásod helyes!");
                         btnEllenorzes.setEnabled(false);
-                        osszProba++;
-                        osztasProba++;
+                        szamok[0]++;
+                        szamok[6]++;
                         osszHelyes++;
                     } else {
                         lblValasz.setText("A megoldásod rossz!");
-                        osszProba++;
-                        osztasProba++;
+                        szamok[0]++;
+                        szamok[6]++;
 
                     }
                 } catch (Exception e) {
@@ -629,13 +620,13 @@ public class Muveletek extends javax.swing.JFrame {
                     if (szam1 * szam2 == vegeredmeny) {
                         lblValasz.setText("A megoldásod helyes!");
                         btnEllenorzes.setEnabled(false);
-                        osszProba++;
-                        szorzasProba++;
+                        szamok[0]++;
+                        szamok[8]++;
                         osszHelyes++;
                     } else {
                         lblValasz.setText("A megoldásod rossz!");
-                        osszProba++;
-                        szorzasProba++;
+                        szamok[0]++;
+                        szamok[8]++;
 
                     }
                 } catch (Exception e) {
@@ -645,7 +636,7 @@ public class Muveletek extends javax.swing.JFrame {
         }
         kiiratasok();
         if (osszHelyes > 0) {
-            float eredmenyed = (float) osszHelyes / osszKerdes * 100;
+            float eredmenyed = (float) osszHelyes / szamok[1] * 100;
 //        lblEredmeny.setText("Eredmény: " + eredmenyed + " %");
             lblEredmeny.setText(String.format("Eredmény: %.2f%s", eredmenyed, "%"));
         }
@@ -751,8 +742,8 @@ public class Muveletek extends javax.swing.JFrame {
 
     private void osszeadas() {
         muveletSzama = 1;
-        osszKerdes++;
-        osszeadasKerdes++;
+        szamok[1]++;
+        szamok[3]++;
         btnEllenorzes.setEnabled(true);
         kiiratasok();
 
@@ -765,8 +756,8 @@ public class Muveletek extends javax.swing.JFrame {
 
     private void kivonas() {
         muveletSzama = 2;
-        osszKerdes++;
-        kivonasKerdes++;
+        szamok[1]++;
+        szamok[5]++;
         btnEllenorzes.setEnabled(true);
         kiiratasok();
 
@@ -779,8 +770,8 @@ public class Muveletek extends javax.swing.JFrame {
 
     private void osztas() {
         muveletSzama = 3;
-        osszKerdes++;
-        osztasKerdes++;
+        szamok[1]++;
+        szamok[7]++;
         btnEllenorzes.setEnabled(true);
         kiiratasok();
 
@@ -793,8 +784,8 @@ public class Muveletek extends javax.swing.JFrame {
 
     private void szorzas() {
         muveletSzama = 4;
-        osszKerdes++;
-        szorzasKerdes++;
+        szamok[1]++;
+        szamok[79]++;
         btnEllenorzes.setEnabled(true);
         kiiratasok();
 
@@ -806,21 +797,21 @@ public class Muveletek extends javax.swing.JFrame {
     }
 
     private void kiiratasok() {
-        lblOsszKerdes.setText("Össz kérdések száma: " + osszKerdes);
-        lblOsszProba.setText("Össz Probálkozások száma: " + osszProba);
+        lblOsszKerdes.setText("Össz kérdések száma: " + szamok[1]);
+        lblOsszProba.setText("Össz Probálkozások száma: " + szamok[0]);
 
-        lblOsszeadKerdes.setText("Összeadás: " + osszeadasKerdes);
-        lblOsszeadProba.setText("Összeadás: " + osszeadasProba);
+        lblOsszeadKerdes.setText("Összeadás: " + szamok[3]);
+        lblOsszeadProba.setText("Összeadás: " + szamok[2]);
 
-        lblKivonasKerdes.setText("Kivonás: " + kivonasKerdes);
-        lblKivonasProba.setText("Kivonás: " + kivonasProba);
+        lblKivonasKerdes.setText("Kivonás: " + szamok[5]);
+        lblKivonasProba.setText("Kivonás: " + szamok[4]);
 
-        lblOsztasKerdes.setText("Osztás: " + osztasKerdes);
-        lblOsztasProba.setText("Osztás: " + osztasProba);
+        lblOsztasKerdes.setText("Osztás: " + szamok[7]);
+        lblOsztasProba.setText("Osztás: " + szamok[6]);
 
-        lblSzorzasKerdes.setText("Szorzás: " + szorzasKerdes);
-        lblSzorzasProba.setText("Szorzás: " + szorzasProba);
-
+        lblSzorzasKerdes.setText("Szorzás: " + szamok[9]);
+        lblSzorzasProba.setText("Szorzás: " + szamok[8]);
+        
         txtEredmeny.setText("");
         
     }
