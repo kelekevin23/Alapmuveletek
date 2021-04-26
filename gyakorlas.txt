@@ -1,6 +1,6 @@
 Alampműveletek gyakoroltatása statisztika: 
-   Össz kérdések száma: 11   Össz Probálkozások száma: 5
-              Összeadás: 3                  Összeadás: 1
-                Kivonás: 5                    Kivonás: 0
-                 Osztás: 1                     Osztás: 1
+   Össz kérdések száma: 13   Össz Probálkozások száma: 6
+              Összeadás: 6                  Összeadás: 1
+                Kivonás: 4                    Kivonás: 0
+                 Osztás: 1                     Osztás: 2
                 Szorzás: 2                    Szorzás: 3

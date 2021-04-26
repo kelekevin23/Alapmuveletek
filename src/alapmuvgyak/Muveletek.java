@@ -21,7 +21,7 @@ public class Muveletek extends javax.swing.JFrame {
     int szam1 = 0;
     int szam2 = 0;
     int vegeredmeny = 0;
-    
+
     int osszKerdes = 0;
     int osszProba = 0;
     int osszeadasKerdes = 0;
@@ -35,7 +35,8 @@ public class Muveletek extends javax.swing.JFrame {
     int muveletSzama = 0;
     int osszHelyes = 0;
 
-    int[] szamok = {osszProba, osszKerdes, osszeadasProba, osszeadasKerdes, kivonasProba, kivonasKerdes, osztasProba, osztasKerdes,  szorzasProba, szorzasKerdes};
+    int[] szamok = {osszProba, osszKerdes, osszeadasProba, osszeadasKerdes, kivonasProba, kivonasKerdes, osztasProba, osztasKerdes, szorzasProba, szorzasKerdes};
+
     /**
      * Creates new form Muveletek
      */
@@ -477,39 +478,34 @@ public class Muveletek extends javax.swing.JFrame {
             Path path = Paths.get(fn);
             try {
                 byte[] bajtTomb = Files.readAllBytes(path);//betűnként ASCCI kód
-                byte egyBajt = bajtTomb[0]; 
-                
+                byte egyBajt = bajtTomb[0];
+
                 List<String> stringLista = Files.readAllLines(path);
-                
+
 //                String elsoSor = stringLista.get(1);
-
-
-//                //String[] adatok = elsoSor.split("\\D");
-//                //adatok = adatok[1].split(" ");
-//                //elsoSor = elsSor.replaceAll("\\D+", " ")
+//                String[] adatok = elsoSor.split("\\D");
+//                adatok = adatok[1].split(" ");
+//                elsoSor = elsSor.replaceAll("\\D+", " ")
 //                String[] adatok = elsoSor.split(": ");
 //                String[] sorkoz = adatok[1].split("   ");
 //                osszKerdes = Integer.valueOf(sorkoz[0]);
 //                osszProba = Integer.valueOf(adatok[2]);
-
-                
-                
                 int seged = 0;
                 int index = 0;
                 for (int i = 0; i < 5; i++) {
-                    seged ++;
+                    seged++;
 
                     String Sor = stringLista.get(seged);
                     String[] ertekek = Sor.split(": ");
                     szamok[index] = Integer.valueOf(ertekek[2]);
                     index++;
-                    
+
                     String[] sorkozok = ertekek[1].split("   ");
                     szamok[index] = Integer.valueOf(sorkozok[0]);
                     index++;
                 }
                 kiiratasok();
-                /* tényleges megnyitás VÉGE */         
+                /* tényleges megnyitás VÉGE */
             } catch (IOException ex) {
                 Logger.getLogger(Muveletek.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -781,7 +777,7 @@ public class Muveletek extends javax.swing.JFrame {
     private void szorzas() {
         muveletSzama = 4;
         szamok[1]++;
-        szamok[79]++;
+        szamok[9]++;
         btnEllenorzes.setEnabled(true);
         kiiratasok();
 
@@ -807,8 +803,8 @@ public class Muveletek extends javax.swing.JFrame {
 
         lblSzorzasKerdes.setText("Szorzás: " + szamok[9]);
         lblSzorzasProba.setText("Szorzás: " + szamok[8]);
-        
+
         txtEredmeny.setText("");
-        
+
     }
 }
