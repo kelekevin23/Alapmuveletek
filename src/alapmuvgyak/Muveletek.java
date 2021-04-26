@@ -491,11 +491,38 @@ public class Muveletek extends javax.swing.JFrame {
                 String negyedikSor = stringLista.get(4);
                 String otodikSor = stringLista.get(5);
                 
-                String[] adatok = elsoSor.split(":");
+                //első sor
+                String[] adatok = elsoSor.split(": ");
+                String[] sorkoz = adatok[1].split("   ");
+                osszKerdes = Integer.valueOf(sorkoz[0]);
+                osszProba = Integer.valueOf(adatok[2]);
                 
+                //második sor
+                String[] adatok2 = masodikSor.split(": ");
+                String[] sorkoz2 = adatok2[1].split("   ");
+                osszeadasKerdes = Integer.valueOf(sorkoz2[0]);
+                osszeadasProba = Integer.valueOf(adatok2[2]);
                 
-                int temp = 0;
-                /* tényleges megnyitás VÉGE */
+                //harmadik sor
+                String[] adatok3 = harmadikSor.split(": ");
+                String[] sorkoz3 = adatok3[1].split("   ");
+                kivonasKerdes = Integer.valueOf(sorkoz3[0]);
+                kivonasProba = Integer.valueOf(adatok3[2]);
+                
+                //negyedik sor
+                String[] adatok4 = negyedikSor.split(": ");
+                String[] sorkoz4 = adatok4[1].split("   ");
+                osztasKerdes = Integer.valueOf(sorkoz4[0]);
+                osztasProba = Integer.valueOf(adatok4[2]);
+                
+                //ötödik sor
+                String[] adatok5 = otodikSor.split(": ");
+                String[] sorkoz5 = adatok5[1].split("   ");
+                szorzasKerdes = Integer.valueOf(sorkoz5[0]);
+                szorzasProba = Integer.valueOf(adatok5[2]);
+                
+                kiiratasok();
+                /* tényleges megnyitás VÉGE */         
             } catch (IOException ex) {
                 Logger.getLogger(Muveletek.class.getName()).log(Level.SEVERE, null, ex);
             }
